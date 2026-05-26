@@ -28,7 +28,7 @@ public class Sandwich {
     }
 
     public double getPrice() {
-        double price = getBreadPrice();
+        double price = getBreadPrice(); // get bread price
         for (Topping topping : toppings) {
             price += topping.getPrice(size);
         }
