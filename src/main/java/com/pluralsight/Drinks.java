@@ -15,9 +15,9 @@ public class Drink {
 
     public double getPrice() {
         switch (size.toLowerCase()) {
-            case "small":  return 2.00;
-            case "medium": return 2.50;
-            case "large":  return 3.00;
+            case "small":  return 2.00; // small price
+            case "medium": return 2.50; // medium price
+            case "large":  return 3.00; // large price
             default:       return 0.0;
         }
     }
