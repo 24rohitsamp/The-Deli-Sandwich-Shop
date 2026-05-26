@@ -11,10 +11,10 @@ public class Sandwich {
     private List<Topping> toppings;
 
     public Sandwich(int size, String bread) {
-        this.size = size;
-        this.bread = bread;
-        this.toasted = false;
-        this.toppings = new ArrayList<>();
+        this.size = size; // size of the bread
+        this.bread = bread; // bread type
+        this.toasted = false; // True or False, whether or not bread is toasted
+        this.toppings = new ArrayList<>(); // new toppings
     }
 
     public int getSize() { return size; }
@@ -40,6 +40,6 @@ public class Sandwich {
             case 4:  return 5.50; // case4 = 4 inch bread
             case 8:  return 7.00; // case8 = 8 inch bread
             case 12: return 8.50; // case12 = 12 inch bread
-            default: return 0.0;
+            default: return 0.0; // no bread then = zero, but allowed to continue to add chips/drinks to your order
         }
     }
