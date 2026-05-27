@@ -10,10 +10,10 @@ public class Chips {
 
     public String getType() { return type; }
 
-    public double getPrice() { return 1.50; }
+    public double getPrice() { return 1.50; } // the price for chips is fixed at 1.50
 
     @Override
     public String toString() {
-        return String.format("%s chips - $%.2f", type, getPrice());
+        return String.format("%s chips - $%.2f", type, getPrice()); //format
     }
 }
