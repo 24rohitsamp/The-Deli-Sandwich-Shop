@@ -1,30 +1,46 @@
 package com.pluralsight;
 
+import java.util.Scanner;
+
 public class HomeScreen {
 
-    private final OrderScreen orderScreen = new OrderScreen();
+    private Scanner scanner;
+    private OrderScreen orderScreen;
 
-    public void run() {
-
-        boolean running = true;
-        while (running) {
-
-        }
-        //Interface
-            System.out.println("  1) New Order"); // takes new orders
-            System.out.println("  0) Exit"); // exits the application
-
-            int choice = UserInterface.promptInt("Enter choice:");
-
-            switch (choice) {
-                case 1 -> orderScreen.handleOrder();
-                case 0 -> {
-                    System.out.println("\n  Thanks for visiting DELI-cious. Goodbye!\n");
-                    running = false; // prints message on a new line.
-                }
-                default -> System.out.println("  Invalid option. Please try again."); //wrong option selected but lets you try again.
-            }
-        }
+    public HomeScreen() {
+        this.scanner = new Scanner(System.in);
+        this.orderScreen = new OrderScreen(scanner);
     }
 
+    public void display() {
+        System.out.println("==========================================");
+        System.out.println("   Welcome to DELI-cious Sandwich Shop!  ");
+        System.out.println("==========================================");
 
+        boolean running = true;
+
+        while (running) {
+            System.out.println("\n========== HOME SCREEN ==========");
+            System.out.println("1) New Order");
+            System.out.println("0) Exit");
+            System.out.print("Select an option: ");
+
+            String choice = scanner.nextLine().trim();
+
+            switch (choice) {
+                case "1":
+                    Order order = new Order();
+                    orderScreen.display(order);
+                    break;
+                case "0":
+                    System.out.println("\nThank you for visiting Rohit's DELI-cious Store! Goodbye!");
+                    running = false;
+                    break;
+                default:
+                    System.out.println("Invalid option. Please enter 1 or 0.");
+            }
+        }
+
+        scanner.close();
+    }
+}
