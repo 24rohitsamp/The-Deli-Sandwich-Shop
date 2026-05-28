@@ -2,18 +2,17 @@ package com.pluralsight;
 
 public class Chips {
 
-    private String type;
+    private static final double PRICE = 1.50;
+    private String chipType;
 
-    public Chips(String type) {
-        this.type = type;
+    public Chips(String chipType) {
+        this.chipType = chipType;
     }
 
-    public String getType() { return type; }
+    public double getPrice()    { return PRICE; }
+    public String getChipType() { return chipType; }
 
-    public double getPrice() { return 1.50; } // the price for chips is fixed at 1.50
-
-    @Override
-    public String toString() {
-        return String.format("%s chips - $%.2f", type, getPrice()); //format
+    public void printOrder() {
+        System.out.printf("  Chips: %s  -  $%.2f%n", chipType, getPrice());
     }
 }
